@@ -326,7 +326,7 @@ public class InputVCR : MonoBehaviour
                     switch ( input.inputType )
                     {
                     case Recording.InputInfo.InputType.Axis:
-                        input.axisValue = Input.GetAxis( input.inputName );
+                        input.axisValue = Input.GetAxisRaw( input.inputName );
                         break;
                     case Recording.InputInfo.InputType.Button:
                         input.buttonState = Input.GetButton( input.inputName );
@@ -435,7 +435,7 @@ public class InputVCR : MonoBehaviour
 		if ( _mode == InputVCRMode.Playback && thisFrameInputs.ContainsKey( axisName ) )
 			return thisFrameInputs[axisName].axisValue;
 		else
-			return Input.GetAxis ( axisName );
+			return Input.GetAxisRaw ( axisName );
 	}
 	
 	public bool GetMouseButton( int buttonNum )
