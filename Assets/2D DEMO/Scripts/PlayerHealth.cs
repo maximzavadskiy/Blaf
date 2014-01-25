@@ -43,8 +43,19 @@ public class PlayerHealth : MonoBehaviour
 
 			// ... Trigger the 'Die' animation state
 			anim.SetTrigger("Die");
+
+			// Reload the game soon
+			StartCoroutine("ReloadGame");
 		}
 	}
-
+	
+	
+	IEnumerator ReloadGame()
+	{			
+		// ... pause briefly
+		yield return new WaitForSeconds(1);
+		// ... and then reload the level.
+		Application.LoadLevel(Application.loadedLevel);
+	}
 
 }

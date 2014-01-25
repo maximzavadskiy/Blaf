@@ -9,8 +9,6 @@ public class PlayerControl : MonoBehaviour
 	public bool jump = false;				// Condition for whether the player should jump.
 
 
-	public float moveForce = 365f;			// Amount of force added to move the player left and right.
-	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
 	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
 	public AudioClip[] taunts;				// Array of clips for when the player taunts.
@@ -18,6 +16,7 @@ public class PlayerControl : MonoBehaviour
 	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
 
 
+	private float maxSpeed = 15f;				// The fastest the player can travel in the x axis.
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
 	private bool grounded = false;			// Whether or not the player is grounded.
@@ -46,7 +45,7 @@ public class PlayerControl : MonoBehaviour
 		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 
 		// If the jump button is pressed and the player is grounded then the player should jump.
-		if (grounded)
+		if (grounded && !jump)
 		{
 			if (useVCR)
 			{
@@ -68,20 +67,24 @@ public class PlayerControl : MonoBehaviour
 		if ( useVCR )
 			h = vcr.GetAxis( "Horizontal" );
 		else
-			h = Input.GetAxis("Horizontal");
+			h = Input.GetAxisRaw("Horizontal");
 
 		// The Speed animator parameter is set to the absolute value of the horizontal input.
 		anim.SetFloat("Speed", Mathf.Abs(h));
 
 		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
-		if(h * rigidbody2D.velocity.x < maxSpeed)
+		//if(h * rigidbody2D.velocity.x < maxSpeed)
 			// ... add a force to the player.
-			rigidbody2D.AddForce(Vector2.right * h * moveForce);
+			//rigidbody2D.AddForce(Vector2.right * h * moveForce);
 
 		// If the player's horizontal velocity is greater than the maxSpeed...
-		if(Mathf.Abs(rigidbody2D.velocity.x) > maxSpeed)
+		//if(Mathf.Abs(rigidbody2D.velocity.x) > maxSpeed)
 			// ... set the player's velocity to the maxSpeed in the x axis.
-			rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
+			//rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
+
+		Vector2 current_velocity = rigidbody2D.velocity;
+		current_velocity.x = h * maxSpeed;
+		rigidbody2D.velocity = current_velocity;
 
 		// If the input is moving the player right and the player is facing left...
 		if(h > 0 && !facingRight)
