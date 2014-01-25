@@ -43,7 +43,6 @@ GameObject:
   - 114: {fileID: 11400002}
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
-  - 58: {fileID: 5800000}
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400004}
   - 82: {fileID: 8200004}
@@ -67,6 +66,7 @@ GameObject:
   - 4: {fileID: 400028}
   - 212: {fileID: 21200022}
   - 82: {fileID: 8200002}
+  - 95: {fileID: 9500002}
   m_Layer: 9
   m_Name: body
   m_TagString: Untagged
@@ -136,17 +136,6 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5800000
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100020}
-  m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 24ac79603fb61400588e37d9f6fe952a, type: 2}
-  m_IsTrigger: 0
-  m_Radius: .370000005
-  m_Center: {x: 0, y: -.330000013}
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -156,8 +145,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .610000014, y: 1.16999996}
-  m_Center: {x: 0, y: .330000013}
+  m_Size: {x: .430000007, y: 1.64999998}
+  m_Center: {x: -.0500000007, y: .119999997}
 --- !u!81 &8100000
 AudioListener:
   m_ObjectHideFlags: 1
@@ -353,6 +342,20 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 1
   m_HasTransformHierarchy: 1
+--- !u!95 &9500002
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3201de423bf9d045bb3019917ce8d87, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,11 +427,21 @@ MonoBehaviour:
     mouseButtonNum: 0
     buttonState: 0
     axisValue: 0
+  - inputType: 2
+    inputName: a
+    mouseButtonNum: 0
+    buttonState: 0
+    axisValue: 0
+  - inputType: 2
+    inputName: d
+    mouseButtonNum: 0
+    buttonState: 0
+    axisValue: 0
   recordMouseEvents: 0
   syncRecordLocations: 1
   autoSyncLocationRate: 1
   snapToSyncedLocation: 1
-  recordingFrameRate: 60
+  recordingFrameRate: 30
   _mode: 0
 --- !u!114 &11400010
 MonoBehaviour:

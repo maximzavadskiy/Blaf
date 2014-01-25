@@ -69,7 +69,7 @@ public class InputVCR : MonoBehaviour
 	
     public bool syncRecordLocations = true;
 // whether position/rotation info is stored automatically
-    public float autoSyncLocationRate = 1f;
+    public float autoSyncLocationRate = 1.0f;
     public bool snapToSyncedLocation = true;
 // whether this transform will snap to recorded locations, or left accessible for your own handling
 	

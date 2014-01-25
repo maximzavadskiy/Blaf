@@ -4,14 +4,23 @@ using System.Collections;
 public class EnemyMovementScript : MonoBehaviour 
 {
 	private bool facingRight = true;
+
+
 	private Transform edgeRight = null;
 	private Transform edgeLeft = null;
+
+	private Transform wallCheckRight = null;
+	private Transform wallCheckLeft = null;
+
 	public float speed = 1f;
 	// Use this for initialization
 	void Start () 
 	{
 		edgeRight = transform.FindChild("PlatformEdgeCheckerRight");
 		edgeLeft = transform.FindChild("PlatformEdgeCheckerLeft");
+
+		wallCheckRight = transform.FindChild("WallCheckerRight");
+		wallCheckLeft = transform.FindChild("WallCheckerLeft");;
 	}
 	
 	// Update is called once per frame
@@ -20,11 +29,17 @@ public class EnemyMovementScript : MonoBehaviour
 		bool hasGroundInFront = Physics2D.Linecast (transform.position, 
 		                                               facingRight ? edgeRight.position : edgeLeft.position,
 		                                               1 << LayerMask.NameToLayer ("Ground"));
-		if (!hasGroundInFront) 
-		{
-			facingRight = !facingRight;
-			//TODO: delay? animation?
-		}
+		if (!hasGroundInFront) {
+						facingRight = !facingRight;
+						//TODO: delay? animation?
+			//don't have ground in the front then let's check if we face a wall
+				} else {
+					bool hasWallInFront = Physics2D.Linecast (transform.position, 
+			                                          facingRight ? wallCheckRight.position : wallCheckLeft.position,
+			                                            1 << LayerMask.NameToLayer ("Ground"));
+					if(hasWallInFront)
+						facingRight = !facingRight;
+				}
 
 		//Vector2 force = Vector2.right;
 		//if (!facingRight)

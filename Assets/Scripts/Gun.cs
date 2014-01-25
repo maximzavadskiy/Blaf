@@ -10,10 +10,18 @@ public class Gun : MonoBehaviour
 
 	bool isShootingRight = true;
 	private Animator anim;					// Reference to the Animator component.
+	
+	private InputVCR vcr;
 
+	private int shootCooldown = 0;
 
 	void Awake()
-	{
+	{		
+		Transform root = transform;
+		while ( root.parent != null )
+			root = root.parent;
+		vcr = root.GetComponent<InputVCR>();
+
 		// Setting up the references.
 		//print (GameObject.Find ("RocketPrefab"));
 		rocket = ((GameObject) Resources.Load("rocket")).GetComponent<Rigidbody2D>();
@@ -23,17 +31,20 @@ public class Gun : MonoBehaviour
 
 	void Update ()
 	{
-
-		if (Input.GetKeyDown (KeyCode.A))
+		if (vcr.GetKey ("a"))
 			isShootingRight = false;
 
-		if (Input.GetKeyDown (KeyCode.D))
+		if (vcr.GetKey ("d"))
 			isShootingRight = true;
+
+		shootCooldown--;
 
 		// If the fire button is pressed...
 		//if(Input.GetButtonDown("Fire1"))
-		if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.D))
+		if (shootCooldown <= 0 && (vcr.GetKey ("a") || vcr.GetKey ("d")))
 		{
+			shootCooldown = 20;
+
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Shoot");
 			audio.Play();
