@@ -31,7 +31,8 @@ public class Gun : MonoBehaviour
 			isShootingRight = true;
 
 		// If the fire button is pressed...
-		if(Input.GetButtonDown("Fire1"))
+		//if(Input.GetButtonDown("Fire1"))
+		if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.D))
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Shoot");
