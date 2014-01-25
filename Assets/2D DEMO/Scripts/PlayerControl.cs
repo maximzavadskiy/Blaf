@@ -42,23 +42,19 @@ public class PlayerControl : MonoBehaviour
 		vcr = root.GetComponent<InputVCR>();
 		useVCR = vcr != null;
 
-		GameObject recordKeeper = GameObject.Find ("RecordKeeper");
+		// Spawn record keeper if it doesn't exist
+		GameObject recordKeeper = GameObject.Find ("RecordKeeper(Clone)");
 		if (recordKeeper == null)
 		{
 			recordKeeper = Instantiate(recordKeeperPrefab) as GameObject;
-		}
-
-		Recording recording = null;
-		if (!recordKeeper)
-			recording = recordKeeper.GetComponent<RecordKeeper>().recording;
-
-		if (recording == null)
-		{
 			vcr.NewRecording ();
 			recordKeeper.GetComponent<RecordKeeper>().recording = vcr.GetRecording();
 		}
 		else
-			vcr.Play (recording, 0);
+		{
+			vcr.Play (recordKeeper.GetComponent<RecordKeeper>().recording, 0);
+			Debug.Log("playback!");
+		}
 	}
 
 
