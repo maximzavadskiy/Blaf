@@ -21,9 +21,11 @@ public class PlayerControl : MonoBehaviour
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
 	private bool grounded = false;			// Whether or not the player is grounded.
 	private Animator anim;					// Reference to the player's animator component.
-	
+
 	private bool useVCR;
 	private InputVCR vcr;
+
+	private bool stuckOnUprightWall = false;
 
 	void Awake()
 	{
@@ -58,6 +60,21 @@ public class PlayerControl : MonoBehaviour
 		}
 	}
 
+	void OnCollisionStay2D(Collision2D collision)
+	{
+		int upwardNormals = 0;
+		foreach(ContactPoint2D point in collision.contacts)
+		{
+			Debug.Log ("pointNormal = " + Mathf.Atan2(point.normal.y, point.normal.x));
+			float angle = Mathf.Atan2(point.normal.y, point.normal.x);
+			if (angle > Mathf.PI/4 && angle < 3*Mathf.PI/4)
+				upwardNormals++;
+		}
+		if (upwardNormals == 0)
+			stuckOnUprightWall = true;
+		else stuckOnUprightWall = false;
+		Debug.Log ("stuck?" + upwardNormals + ", " + grounded + ", " + collision.contacts.GetLength(0));
+	}
 
 	void FixedUpdate ()
 	{
@@ -82,10 +99,16 @@ public class PlayerControl : MonoBehaviour
 			// ... set the player's velocity to the maxSpeed in the x axis.
 			//rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
 
-		Vector2 current_velocity = rigidbody2D.velocity;
-		current_velocity.x = h * maxSpeed;
-		rigidbody2D.velocity = current_velocity;
-
+		if (!stuckOnUprightWall) 
+		{
+			Vector2 current_velocity = rigidbody2D.velocity;
+			current_velocity.x = h * maxSpeed;
+			rigidbody2D.velocity = current_velocity;
+		}
+		else
+		{
+			stuckOnUprightWall = false;		
+		}
 		// If the input is moving the player right and the player is facing left...
 		if(h > 0 && !facingRight)
 			// ... flip the player.
