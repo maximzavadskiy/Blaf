@@ -532,7 +532,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 134304705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.54314232, y: 4, z: 13.0639915}
+  m_LocalPosition: {x: 3.10272026, y: 4, z: 13.0639915}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 323888826}
@@ -1173,6 +1173,7 @@ Transform:
   - {fileID: 377703826}
   - {fileID: 950346766}
   - {fileID: 1907120926}
+  - {fileID: 1062564035}
   m_Father: {fileID: 0}
 --- !u!1001 &334332096
 Prefab:
@@ -1809,11 +1810,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 99c5c7777f17b0e43954fc55de6a8fef, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -27.9966335
+      value: -24.8801174
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 99c5c7777f17b0e43954fc55de6a8fef, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.11907959
+      value: 2.30607414
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 99c5c7777f17b0e43954fc55de6a8fef, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2496,7 +2497,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 890269352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.14599609, y: 0, z: 13.0639915}
+  m_LocalPosition: {x: .112352371, y: 0, z: 13.0639915}
   m_LocalScale: {x: 10.4643087, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 323888826}
@@ -3087,6 +3088,74 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1784991167}
+--- !u!1 &1062564034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1062564035}
+  - 33: {fileID: 1062564038}
+  - 23: {fileID: 1062564037}
+  - 61: {fileID: 1062564036}
+  m_Layer: 12
+  m_Name: Cube
+  m_TagString: ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1062564035
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062564034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.63981056, y: 4, z: 13.0639915}
+  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 323888826}
+--- !u!61 &1062564036
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062564034}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
+--- !u!23 &1062564037
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062564034}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!33 &1062564038
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062564034}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1065510965
 GameObject:
   m_ObjectHideFlags: 0
@@ -5079,7 +5148,7 @@ Transform:
   m_PrefabInternal: {fileID: 567386435}
   m_GameObject: {fileID: 1816296319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.9966335, y: 3.11907959, z: 0}
+  m_LocalPosition: {x: -24.8801174, y: 2.30607414, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1404500777}
@@ -5251,7 +5320,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1826568978}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1ad1c509ffb314b2b933a73b401aae26, type: 2}
   m_CullingMode: 1

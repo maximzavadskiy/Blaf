@@ -24,6 +24,7 @@ public class Ears : MonoBehaviour {
 
 			if( hittedObject == enemy) {
 				enemy.GetComponent<AudioSource>().mute = false;
+				enemy.GetComponent<AudioSource>().volume = Mathf.Clamp01(1 - Mathf.Abs(transform.position.y - enemy.transform.position.y) * 0.3f);
 			}
 			else
 				enemy.GetComponent<AudioSource>().mute = true;
