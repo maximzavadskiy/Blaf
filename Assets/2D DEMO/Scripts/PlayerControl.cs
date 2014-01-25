@@ -20,7 +20,11 @@ public class PlayerControl : MonoBehaviour
 	private float jumpForce = 850f;			// Amount of force added when the player jumps.
 	private float maxSpeed = 7.5f;				// The fastest the player can travel in the x axis.
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
-	private Transform groundCheck;			// A position marking where to check if the player is grounded.
+
+	private Transform groundCheckRight;			// A position marking where to check if the player is grounded.
+	private Transform groundCheckLeft;			// A position marking where to check if the player is grounded.
+
+
 	private bool grounded = false;			// Whether or not the player is grounded.
 	private Animator anim;					// Reference to the player's animator component.
 
@@ -33,7 +37,9 @@ public class PlayerControl : MonoBehaviour
 	void Awake()
 	{
 		// Setting up references.
-		groundCheck = transform.Find("groundCheck");
+		groundCheckRight = transform.Find("groundCheck").FindChild("right");
+		groundCheckLeft = transform.Find("groundCheck").FindChild("left");
+
 		anim = transform.FindChild("body").GetComponent<Animator>();
 		
 		Transform root = transform;
@@ -76,7 +82,8 @@ public class PlayerControl : MonoBehaviour
 		}
 
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
+		grounded = Physics2D.Linecast(transform.position, groundCheckRight.position, 1 << LayerMask.NameToLayer("Ground")) ||
+					Physics2D.Linecast(transform.position, groundCheckLeft.position, 1 << LayerMask.NameToLayer("Ground"));  
 
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if (grounded && !jump && jumpCooldown <= 0)
