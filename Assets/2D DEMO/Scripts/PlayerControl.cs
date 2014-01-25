@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour
 	
 	private bool useVCR;
 	private InputVCR vcr;
+	private int jumpCooldown = 0;
 
 	void Awake()
 	{
@@ -36,6 +37,15 @@ public class PlayerControl : MonoBehaviour
 			root = root.parent;
 		vcr = root.GetComponent<InputVCR>();
 		useVCR = vcr != null;
+
+		Recording recording = GameObject.Find ("RecordKeeper").GetComponent<RecordKeeper>().recording;
+		if (recording == null)
+		{
+			vcr.NewRecording ();
+			GameObject.Find ("RecordKeeper").GetComponent<RecordKeeper>().recording = vcr.GetRecording();
+		}
+		else
+			vcr.Play (recording, 0);
 	}
 
 
@@ -45,11 +55,15 @@ public class PlayerControl : MonoBehaviour
 		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 
 		// If the jump button is pressed and the player is grounded then the player should jump.
-		if (grounded && !jump)
+		if (grounded && !jump && jumpCooldown <= 0)
 		{
 			if (useVCR)
 			{
-				jump = vcr.GetButtonDown("Jump");
+				jump = vcr.GetButton("Jump");
+				if (jump)
+				{
+					jumpCooldown = 5;
+				}
 			}
 			else
 			{
@@ -95,6 +109,7 @@ public class PlayerControl : MonoBehaviour
 			// ... flip the player.
 			Flip();
 
+		jumpCooldown--;
 		// If the player should jump...
 		if(jump)
 		{
