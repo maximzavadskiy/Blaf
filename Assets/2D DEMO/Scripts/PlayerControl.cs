@@ -14,6 +14,8 @@ public class PlayerControl : MonoBehaviour
 	public float tauntProbability = 50f;	// Chance of a taunt happening.
 	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
 
+	public GameObject recordKeeperPrefab;
+
 
 	private float jumpForce = 850f;			// Amount of force added when the player jumps.
 	private float maxSpeed = 7.5f;				// The fastest the player can travel in the x axis.
@@ -40,11 +42,20 @@ public class PlayerControl : MonoBehaviour
 		vcr = root.GetComponent<InputVCR>();
 		useVCR = vcr != null;
 
-		Recording recording = GameObject.Find ("RecordKeeper").GetComponent<RecordKeeper>().recording;
+		GameObject recordKeeper = GameObject.Find ("RecordKeeper");
+		if (recordKeeper == null)
+		{
+			recordKeeper = Instantiate(recordKeeperPrefab) as GameObject;
+		}
+
+		Recording recording = null;
+		if (!recordKeeper)
+			recording = recordKeeper.GetComponent<RecordKeeper>().recording;
+
 		if (recording == null)
 		{
 			vcr.NewRecording ();
-			GameObject.Find ("RecordKeeper").GetComponent<RecordKeeper>().recording = vcr.GetRecording();
+			recordKeeper.GetComponent<RecordKeeper>().recording = vcr.GetRecording();
 		}
 		else
 			vcr.Play (recording, 0);
@@ -79,7 +90,6 @@ public class PlayerControl : MonoBehaviour
 		int upwardNormals = 0;
 		foreach(ContactPoint2D point in collision.contacts)
 		{
-			Debug.Log ("pointNormal = " + Mathf.Atan2(point.normal.y, point.normal.x));
 			float angle = Mathf.Atan2(point.normal.y, point.normal.x);
 			if (angle > Mathf.PI/4 && angle < 3*Mathf.PI/4)
 				upwardNormals++;
@@ -87,7 +97,6 @@ public class PlayerControl : MonoBehaviour
 		if (upwardNormals == 0)
 			stuckOnUprightWall = true;
 		else stuckOnUprightWall = false;
-		Debug.Log ("stuck?" + upwardNormals + ", " + grounded + ", " + collision.contacts.GetLength(0));
 	}
 
 	void FixedUpdate ()
