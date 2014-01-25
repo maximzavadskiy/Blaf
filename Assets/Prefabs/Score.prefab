@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb179f764b4fe04099f74c8190ac54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kills: 1
+  kills: 0
   kittenSaved: 0
   kittenKilled: 0
 --- !u!132 &13200000
