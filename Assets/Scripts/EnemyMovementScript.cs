@@ -37,9 +37,6 @@ public class EnemyMovementScript : MonoBehaviour
 					bool hasWallInFront = Physics2D.Linecast (transform.position, 
 			                                          facingRight ? wallCheckRight.position : wallCheckLeft.position,
 			                                            1 << LayerMask.NameToLayer ("Ground"));
-			print (Physics2D.Linecast (transform.position, 
-			                           facingRight ? wallCheckRight.position : wallCheckLeft.position,
-			                           1 << LayerMask.NameToLayer ("Ground")) == true);
 					if(hasWallInFront)
 						facingRight = !facingRight;
 				}
