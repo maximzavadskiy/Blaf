@@ -21,7 +21,7 @@ public class Ears : MonoBehaviour {
 		foreach (GameObject enemy in enemies) {
 			//if raycast only hits the enemy we are checking - then nothing in betweeen!
 			GameObject hittedObject = Physics2D.Raycast(transform.position, enemy.transform.position - transform.position, float.PositiveInfinity, playerLayerMask).collider.gameObject;
-			print (hittedObject);
+
 			if( hittedObject == enemy) {
 				enemy.GetComponent<AudioSource>().mute = false;
 			}
