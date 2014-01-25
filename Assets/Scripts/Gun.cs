@@ -3,10 +3,13 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
+	public float shotAngle = 20f;
+	public float shotReach = 3f;
 
-	public float speed = 20f;				// The speed the rocket will fire at.
+	public float shotReloadTime = 0.5f;
 
-	private Rigidbody2D rocket;				// Prefab of the rocket.
+	public int linecastsAmount = 10;
+
 
 	bool isShootingRight = true;
 	private Animator anim;					// Reference to the Animator component.
@@ -15,17 +18,18 @@ public class Gun : MonoBehaviour
 
 	private int shootCooldown = 0;
 
+	private float lastShotTime;
+
 	void Awake()
 	{		
 		Transform root = transform;
 		while ( root.parent != null )
 			root = root.parent;
 		vcr = root.GetComponent<InputVCR>();
-
-		// Setting up the references.
-		//print (GameObject.Find ("RocketPrefab"));
-		rocket = ((GameObject) Resources.Load("rocket")).GetComponent<Rigidbody2D>();
+		
 		anim = transform.root.gameObject.GetComponent<Animator>();
+
+		lastShotTime = -shotReloadTime;
 	}
 
 
@@ -36,32 +40,56 @@ public class Gun : MonoBehaviour
 
 		if (vcr.GetKey ("d"))
 			isShootingRight = true;
-
-		shootCooldown--;
+	
 
 		// If the fire button is pressed...
 		//if(Input.GetButtonDown("Fire1"))
-		if (shootCooldown <= 0 && (vcr.GetKey ("a") || vcr.GetKey ("d")))
+		if (Time.time > lastShotTime + shotReloadTime && (vcr.GetKey ("a") || vcr.GetKey ("d")))
 		{
-			shootCooldown = 20;
-
+			lastShotTime = Time.time;
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Shoot");
 			audio.Play();
 
-			// If the player is facing right...
-			if(isShootingRight)
+			ShotGunShoot();
+		}
+	}
+
+	private void ShotGunShoot() {
+
+		int playerLayerMask = ~(1 << LayerMask.NameToLayer ("Player"));
+		
+		ArrayList toKills = new ArrayList();
+
+		for (float angle = -shotAngle; angle <= shotAngle; angle += shotAngle/(linecastsAmount-1)) {
+			Vector2 frontDirection = isShootingRight ? Vector2.right : - Vector2.right;
+			Vector2 raycastVector = Quaternion.Euler(0,0,angle) * frontDirection ;
+
+			Debug.DrawLine(transform.position,new Vector2(transform.position.x, transform.position.y) + raycastVector * shotReach , Color.red, 0.5f);
+
+			RaycastHit2D newHit = Physics2D.Raycast(transform.position, raycastVector, shotReach, playerLayerMask);
+
+			bool alreadyExist = false;
+			foreach (RaycastHit2D prevHit in toKills)
 			{
-				// ... instantiate the rocket facing right and set it's velocity to the right. 
-				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
-				bulletInstance.velocity = new Vector2(speed, 0);
+				if(prevHit.collider == newHit.collider) {
+					alreadyExist = true;
+					break;
+				}
 			}
-			else
-			{
-				// Otherwise instantiate the rocket facing left and set it's velocity to the left.
-				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0,0,180f))) as Rigidbody2D;
-				bulletInstance.velocity = new Vector2(-speed, 0);
+
+			if(!alreadyExist)
+				toKills.Add(newHit);
+		}
+
+		foreach(RaycastHit2D toKill in toKills) {
+			//print (toKill.)
+			//RaycastHit2D toKill = (RaycastHit2D )obj;
+			if(toKill.collider != null) {
+				//print (Vector2.Angle(isShootingRight ? Vector2.right : - Vector2.right, toKill.collider.transform.position - transform.position) );
+				toKill.collider.SendMessage("Die", SendMessageOptions.DontRequireReceiver);
 			}
 		}
 	}
+		
 }
