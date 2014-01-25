@@ -47,19 +47,34 @@ public class PlayerControl : MonoBehaviour
 		if (recordKeeper == null)
 		{
 			recordKeeper = Instantiate(recordKeeperPrefab) as GameObject;
-			vcr.NewRecording ();
-			recordKeeper.GetComponent<RecordKeeper>().recording = vcr.GetRecording();
+
+		}
+
+		// Playback on win
+		if (recordKeeper.GetComponent<RecordKeeper>().recording != null)
+		{
+			vcr.Play(recordKeeper.GetComponent<RecordKeeper>().recording, 0);
 		}
 		else
 		{
-			vcr.Play (recordKeeper.GetComponent<RecordKeeper>().recording, 0);
-			Debug.Log("playback!");
+			// Record otherwise
+			vcr.NewRecording();
 		}
 	}
 
 
 	void Update()
 	{
+		if (GameObject.FindWithTag("Kitten") == null)
+		{
+			// WIN!
+			GameObject recordKeeper = GameObject.Find ("RecordKeeper(Clone)");
+			recordKeeper.GetComponent<RecordKeeper>().recording = vcr.GetRecording();
+
+			Application.LoadLevel(Application.loadedLevel);
+			return;
+		}
+
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
 		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 
