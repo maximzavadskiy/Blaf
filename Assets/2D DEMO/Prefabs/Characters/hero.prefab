@@ -50,6 +50,7 @@ GameObject:
   - 82: {fileID: 8200004}
   - 114: {fileID: 11400008}
   - 81: {fileID: 8100000}
+  - 114: {fileID: 11400010}
   m_Layer: 9
   m_Name: hero
   m_TagString: Player
@@ -81,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.961097062, z: 0}
+  m_LocalPosition: {x: 0, y: -1.05928493, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400020}
@@ -103,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.03744578, y: 1.08752942, z: 0}
+  m_LocalPosition: {x: -21.5656281, y: -.745170772, z: -1}
   m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children:
   - {fileID: 400010}
@@ -117,8 +118,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .206802189, y: .284765959, z: 0}
-  m_LocalScale: {x: .232398242, y: .232398301, z: .400000006}
+  m_LocalPosition: {x: .14957428, y: .341982573, z: 0}
+  m_LocalScale: {x: .243841901, y: .243841648, z: .400000006}
   m_Children: []
   m_Father: {fileID: 400020}
 --- !u!50 &5000000
@@ -379,8 +380,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
-  moveForce: 365
-  maxSpeed: 8
   jumpClips:
   - {fileID: 8300000, guid: 50a8d8a939a0f4e77a0dac6ecd2e582b, type: 3}
   jumpForce: 1000
@@ -449,6 +448,17 @@ MonoBehaviour:
   snapToSyncedLocation: 1
   recordingFrameRate: 60
   _mode: 0
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30504a4121e6f9f4fafecf9a8ad60c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200022
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -470,7 +480,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 5980044685cf1a64db8677569afb919a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e8b11a79472418409ae4055058ad0f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

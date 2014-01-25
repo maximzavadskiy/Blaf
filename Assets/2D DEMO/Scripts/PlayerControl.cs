@@ -16,7 +16,7 @@ public class PlayerControl : MonoBehaviour
 	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
 
 
-	private float maxSpeed = 15f;				// The fastest the player can travel in the x axis.
+	private float maxSpeed = 7.5f;				// The fastest the player can travel in the x axis.
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
 	private bool grounded = false;			// Whether or not the player is grounded.
