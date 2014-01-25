@@ -14,6 +14,8 @@ public class PlayerControl : MonoBehaviour
 	public float tauntProbability = 50f;	// Chance of a taunt happening.
 	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
 
+	public GameObject recordKeeperPrefab;
+
 
 	private float jumpForce = 850f;			// Amount of force added when the player jumps.
 	private float maxSpeed = 7.5f;				// The fastest the player can travel in the x axis.
@@ -21,9 +23,12 @@ public class PlayerControl : MonoBehaviour
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
 	private bool grounded = false;			// Whether or not the player is grounded.
 	private Animator anim;					// Reference to the player's animator component.
-	
+
 	private bool useVCR;
 	private InputVCR vcr;
+	private int jumpCooldown = 0;
+
+	private bool stuckOnUprightWall = false;
 
 	void Awake()
 	{
@@ -36,6 +41,24 @@ public class PlayerControl : MonoBehaviour
 			root = root.parent;
 		vcr = root.GetComponent<InputVCR>();
 		useVCR = vcr != null;
+
+		GameObject recordKeeper = GameObject.Find ("RecordKeeper");
+		if (recordKeeper == null)
+		{
+			recordKeeper = Instantiate(recordKeeperPrefab) as GameObject;
+		}
+
+		Recording recording = null;
+		if (!recordKeeper)
+			recording = recordKeeper.GetComponent<RecordKeeper>().recording;
+
+		if (recording == null)
+		{
+			vcr.NewRecording ();
+			recordKeeper.GetComponent<RecordKeeper>().recording = vcr.GetRecording();
+		}
+		else
+			vcr.Play (recording, 0);
 	}
 
 
@@ -45,11 +68,15 @@ public class PlayerControl : MonoBehaviour
 		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 
 		// If the jump button is pressed and the player is grounded then the player should jump.
-		if (grounded && !jump)
+		if (grounded && !jump && jumpCooldown <= 0)
 		{
 			if (useVCR)
 			{
-				jump = vcr.GetButtonDown("Jump");
+				jump = vcr.GetButton("Jump");
+				if (jump)
+				{
+					jumpCooldown = 5;
+				}
 			}
 			else
 			{
@@ -58,6 +85,19 @@ public class PlayerControl : MonoBehaviour
 		}
 	}
 
+	void OnCollisionStay2D(Collision2D collision)
+	{
+		int upwardNormals = 0;
+		foreach(ContactPoint2D point in collision.contacts)
+		{
+			float angle = Mathf.Atan2(point.normal.y, point.normal.x);
+			if (angle > Mathf.PI/4 && angle < 3*Mathf.PI/4)
+				upwardNormals++;
+		}
+		if (upwardNormals == 0)
+			stuckOnUprightWall = true;
+		else stuckOnUprightWall = false;
+	}
 
 	void FixedUpdate ()
 	{
@@ -82,10 +122,16 @@ public class PlayerControl : MonoBehaviour
 			// ... set the player's velocity to the maxSpeed in the x axis.
 			//rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
 
-		Vector2 current_velocity = rigidbody2D.velocity;
-		current_velocity.x = h * maxSpeed;
-		rigidbody2D.velocity = current_velocity;
-
+		if (!stuckOnUprightWall) 
+		{
+			Vector2 current_velocity = rigidbody2D.velocity;
+			current_velocity.x = h * maxSpeed;
+			rigidbody2D.velocity = current_velocity;
+		}
+		else
+		{
+			stuckOnUprightWall = false;		
+		}
 		// If the input is moving the player right and the player is facing left...
 		if(h > 0 && !facingRight)
 			// ... flip the player.
@@ -95,6 +141,7 @@ public class PlayerControl : MonoBehaviour
 			// ... flip the player.
 			Flip();
 
+		jumpCooldown--;
 		// If the player should jump...
 		if(jump)
 		{
