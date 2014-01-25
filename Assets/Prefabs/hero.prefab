@@ -445,7 +445,7 @@ MonoBehaviour:
   syncRecordLocations: 1
   autoSyncLocationRate: 1
   snapToSyncedLocation: 1
-  recordingFrameRate: 30
+  recordingFrameRate: 60
   _mode: 0
 --- !u!114 &11400010
 MonoBehaviour:
