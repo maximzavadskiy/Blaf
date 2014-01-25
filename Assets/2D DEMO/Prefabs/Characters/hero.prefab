@@ -67,6 +67,7 @@ GameObject:
   - 4: {fileID: 400028}
   - 212: {fileID: 21200022}
   - 82: {fileID: 8200002}
+  - 95: {fileID: 9500002}
   m_Layer: 9
   m_Name: body
   m_TagString: Untagged
@@ -352,6 +353,20 @@ Animator:
   m_CullingMode: 1
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
+--- !u!95 &9500002
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3201de423bf9d045bb3019917ce8d87, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:

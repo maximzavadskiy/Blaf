@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour
 	{
 		// Setting up references.
 		groundCheck = transform.Find("groundCheck");
-		anim = GetComponent<Animator>();
+		anim = transform.FindChild("body").GetComponent<Animator>();
 		
 		Transform root = transform;
 		while ( root.parent != null )
