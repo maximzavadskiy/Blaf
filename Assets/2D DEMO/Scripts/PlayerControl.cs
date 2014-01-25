@@ -10,12 +10,12 @@ public class PlayerControl : MonoBehaviour
 
 
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
-	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
 	public AudioClip[] taunts;				// Array of clips for when the player taunts.
 	public float tauntProbability = 50f;	// Chance of a taunt happening.
 	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
 
 
+	private float jumpForce = 850f;			// Amount of force added when the player jumps.
 	private float maxSpeed = 7.5f;				// The fastest the player can travel in the x axis.
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
