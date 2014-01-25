@@ -5,9 +5,7 @@ public class DieFromBullet : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D collider) {
 		if (collider.CompareTag ("Bullet")) {
-						GameObject.Destroy(gameObject);
-						GameObject.Find("Kills Score").GetComponent<KillsHUD>().kills++;
-
-				}
+			SendMessage("Die"); //Deat script will handle it, different for kitten and monster
+		}
 	}
 }
