@@ -86,14 +86,14 @@ public class PlayerControl : MonoBehaviour
 					Physics2D.Linecast(transform.position, groundCheckLeft.position, 1 << LayerMask.NameToLayer("Ground"));  
 
 		// If the jump button is pressed and the player is grounded then the player should jump.
-		if (grounded && !jump && jumpCooldown <= 0)
+		if (grounded && !jump && jumpCooldown <= 0 && Mathf.Abs(rigidbody2D.velocity.y) <= 0.001f)
 		{
 			if (useVCR)
 			{
 				jump = vcr.GetButton("Jump");
 				if (jump)
 				{
-					jumpCooldown = 5;
+					jumpCooldown = 15;
 				}
 			}
 			else

@@ -21,7 +21,7 @@ public class WraithMovement : MonoBehaviour {
 		{
 			// Go further away
 			if (Mathf.Abs(player.transform.position.x - newPosition.x) < 10)
-				newPosition.x -= xMove;
+				newPosition.x -= xMove * 3;
 
 			GetComponent<CircleCollider2D>().enabled = false;
 		}
