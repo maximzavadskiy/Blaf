@@ -21,7 +21,7 @@ public class Ears : MonoBehaviour {
 		foreach (GameObject enemy in enemies) {
 			GameObject hittedObject = null;
 			//if raycast only hits the enemy we are checking - then nothing in betweeen!
-			if (enemy.name != "Wraith" || enemy.GetComponent<CircleCollider2D>().enabled)
+			if (enemy.name != "WraithSpawn(Clone)" && (enemy.name != "WraithPrefab(Clone)" || enemy.GetComponent<CircleCollider2D>().enabled))
 				hittedObject = Physics2D.Raycast(transform.position, enemy.transform.position - transform.position, float.PositiveInfinity, playerLayerMask).collider.gameObject;
 
 			if( hittedObject == enemy) {

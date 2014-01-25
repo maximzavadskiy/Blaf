@@ -146,7 +146,7 @@ GameObject:
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
-  m_Icon: {fileID: 2800000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -270,7 +270,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 432914294}
   m_GameObject: {fileID: 69231824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
   m_CullingMode: 1
@@ -2220,7 +2220,7 @@ GameObject:
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
-  m_Icon: {fileID: 2800000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2344,7 +2344,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 661533273}
   m_GameObject: {fileID: 630097102}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
   m_CullingMode: 1
@@ -2792,6 +2792,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 803793492}
   - 212: {fileID: 803793493}
+  - 95: {fileID: 803793494}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -2817,7 +2818,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 2028834688}
   m_GameObject: {fileID: 803793491}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -2832,8 +2833,23 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577b3adf7175d7145808d47c32912a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &803793494
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500002, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 2028834688}
+  m_GameObject: {fileID: 803793491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2e95b9871959c4e996f21c0dda2867, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &805600436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,7 +3087,7 @@ GameObject:
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
-  m_Icon: {fileID: 2800000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3212,7 +3228,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 910478936}
   m_GameObject: {fileID: 856234185}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
   m_CullingMode: 1
@@ -3320,7 +3336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b084913f6d3c64ab0440ac21d3219f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyToSpawn: {fileID: 0}
+  enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
 --- !u!114 &862597615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3706,7 +3722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b084913f6d3c64ab0440ac21d3219f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyToSpawn: {fileID: 0}
+  enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
 --- !u!114 &936150146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4023,6 +4039,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1014239805}
   - 212: {fileID: 1014239806}
+  - 95: {fileID: 1014239807}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -4048,7 +4065,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 910478936}
   m_GameObject: {fileID: 1014239804}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -4063,8 +4080,23 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577b3adf7175d7145808d47c32912a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &1014239807
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500002, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 910478936}
+  m_GameObject: {fileID: 1014239804}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2e95b9871959c4e996f21c0dda2867, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &1015732330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4230,6 +4262,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1067857273}
   - 212: {fileID: 1067857274}
+  - 95: {fileID: 1067857275}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -4255,7 +4288,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 661533273}
   m_GameObject: {fileID: 1067857272}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -4270,8 +4303,23 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577b3adf7175d7145808d47c32912a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &1067857275
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500002, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 661533273}
+  m_GameObject: {fileID: 1067857272}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2e95b9871959c4e996f21c0dda2867, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &1069666656
 GameObject:
   m_ObjectHideFlags: 0
@@ -4566,7 +4614,7 @@ GameObject:
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
-  m_Icon: {fileID: 2800000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4707,7 +4755,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 2028834688}
   m_GameObject: {fileID: 1208391959}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
   m_CullingMode: 1
@@ -4797,7 +4845,7 @@ GameObject:
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
-  m_Icon: {fileID: 2800000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4921,7 +4969,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 1182150681}
   m_GameObject: {fileID: 1250240688}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
   m_CullingMode: 1
@@ -4991,6 +5039,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1275500184}
   - 212: {fileID: 1275500185}
+  - 95: {fileID: 1275500186}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -5016,7 +5065,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1182150681}
   m_GameObject: {fileID: 1275500183}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -5031,8 +5080,23 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577b3adf7175d7145808d47c32912a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &1275500186
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500002, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182150681}
+  m_GameObject: {fileID: 1275500183}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2e95b9871959c4e996f21c0dda2867, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &1277984871
 GameObject:
   m_ObjectHideFlags: 0
@@ -5106,6 +5170,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1292162006}
   - 212: {fileID: 1292162005}
+  - 95: {fileID: 1292162007}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -5120,7 +5185,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1544822035}
   m_GameObject: {fileID: 1292162004}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -5135,7 +5200,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577b3adf7175d7145808d47c32912a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1292162006
 Transform:
@@ -5148,6 +5213,21 @@ Transform:
   m_LocalScale: {x: .200000003, y: .200000003, z: .200000003}
   m_Children: []
   m_Father: {fileID: 1486815117}
+--- !u!95 &1292162007
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500002, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1544822035}
+  m_GameObject: {fileID: 1292162004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2e95b9871959c4e996f21c0dda2867, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!1001 &1295815696
 Prefab:
   m_ObjectHideFlags: 0
@@ -5496,7 +5576,7 @@ GameObject:
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
-  m_Icon: {fileID: 2800000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5637,7 +5717,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 1544822035}
   m_GameObject: {fileID: 1486815116}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
   m_CullingMode: 1
@@ -5833,7 +5913,7 @@ GameObject:
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
-  m_Icon: {fileID: 2800000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5974,7 +6054,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 978584969}
   m_GameObject: {fileID: 1574566952}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
   m_CullingMode: 1
@@ -6027,6 +6107,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1616944919}
   - 212: {fileID: 1616944920}
+  - 95: {fileID: 1616944921}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -6052,7 +6133,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 978584969}
   m_GameObject: {fileID: 1616944918}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -6067,8 +6148,23 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577b3adf7175d7145808d47c32912a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &1616944921
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500002, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 978584969}
+  m_GameObject: {fileID: 1616944918}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2e95b9871959c4e996f21c0dda2867, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &1617878579
 GameObject:
   m_ObjectHideFlags: 0
@@ -6145,7 +6241,7 @@ Transform:
   m_PrefabInternal: {fileID: 969344031}
   m_GameObject: {fileID: 1657424659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .798867524, y: .558085442, z: 0}
+  m_LocalPosition: {x: 0, y: .558085442, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 392275903}
@@ -6220,7 +6316,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd89cb20d5016a4a809d47de710ff2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  shotAngle: 15
+  shotReach: 7.5
+  shotReloadTime: 1
+  linecastsAmount: 10
 --- !u!1001 &1660721207
 Prefab:
   m_ObjectHideFlags: 0
@@ -6528,7 +6627,7 @@ GameObject:
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
-  m_Icon: {fileID: 2800000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6669,7 +6768,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 541408886}
   m_GameObject: {fileID: 1750640358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
   m_CullingMode: 1
@@ -6802,6 +6901,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1802479542}
   - 212: {fileID: 1802479541}
+  - 95: {fileID: 1802479543}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -6816,7 +6916,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1518829506}
   m_GameObject: {fileID: 1802479540}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -6831,7 +6931,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577b3adf7175d7145808d47c32912a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1802479542
 Transform:
@@ -6844,6 +6944,21 @@ Transform:
   m_LocalScale: {x: .200000003, y: .200000003, z: .200000003}
   m_Children: []
   m_Father: {fileID: 1802798712}
+--- !u!95 &1802479543
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500002, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1518829506}
+  m_GameObject: {fileID: 1802479540}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2e95b9871959c4e996f21c0dda2867, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &1802798711
 GameObject:
   m_ObjectHideFlags: 0
@@ -6864,7 +6979,7 @@ GameObject:
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
-  m_Icon: {fileID: 2800000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7005,7 +7120,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 1518829506}
   m_GameObject: {fileID: 1802798711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
   m_CullingMode: 1
@@ -7696,6 +7811,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2076807824}
   - 212: {fileID: 2076807825}
+  - 95: {fileID: 2076807826}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -7721,7 +7837,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 541408886}
   m_GameObject: {fileID: 2076807823}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -7736,8 +7852,23 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577b3adf7175d7145808d47c32912a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &2076807826
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500002, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 541408886}
+  m_GameObject: {fileID: 2076807823}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2e95b9871959c4e996f21c0dda2867, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!1001 &2111572340
 Prefab:
   m_ObjectHideFlags: 0
@@ -7827,6 +7958,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2128390283}
   - 212: {fileID: 2128390284}
+  - 95: {fileID: 2128390285}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -7852,7 +7984,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 432914294}
   m_GameObject: {fileID: 2128390282}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -7867,8 +7999,23 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 3757687d37f7d4c5e895fe56f03cbc84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577b3adf7175d7145808d47c32912a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &2128390285
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500002, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 432914294}
+  m_GameObject: {fileID: 2128390282}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2e95b9871959c4e996f21c0dda2867, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &2129243488
 GameObject:
   m_ObjectHideFlags: 0
