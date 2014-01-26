@@ -22,6 +22,7 @@ public class MonsterDeath : MonoBehaviour {
 		{
 			Instantiate (deathParticlePrefab, transform.position, Quaternion.identity);
 			GameObject.Destroy(gameObject);
+			Score.instance.kills++;
 		}
 	}
 }

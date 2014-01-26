@@ -186,6 +186,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3979e7cd9e05b46924ea541fae163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &100831397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 100831400}
+  - 68: {fileID: 100831399}
+  - 114: {fileID: 100831398}
+  m_Layer: 0
+  m_Name: BottomTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &100831398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 100831397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f871b9ba0446c4bb5f88ebc1e4cc10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!68 &100831399
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 100831397}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Points:
+  - {x: -45.2687569, y: -.196145862}
+  - {x: .5, y: 0}
+--- !u!4 &100831400
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 100831397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.6717625, y: -4.04781055, z: 0}
+  m_LocalScale: {x: 1.26815104, y: 1.26815104, z: 1.26815104}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &108589445
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +537,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 1935dda53d6bdd1478a1776f0af8f2c4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .449999988
   m_Pitch: 1
   Loop: 1
   Mute: 1
@@ -866,7 +917,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 37d6c9f77a941ae4abbcb202bf345487, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .180000007
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3394,7 +3445,7 @@ GUIText:
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_PixelCorrect: 1
   m_RichText: 1
 --- !u!4 &2042527436

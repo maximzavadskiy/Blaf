@@ -54,15 +54,19 @@ public class PlayerControl : MonoBehaviour
 		if (recordKeeper == null)
 		{
 			recordKeeper = Instantiate(recordKeeperPrefab) as GameObject;
-
+		}
+		else
+		{
+			if (GameObject.Find ("Menu") != null)
+				GameObject.Find ("Menu").SetActive(false);
 		}
 
 		// Playback on win
 		if (recordKeeper.GetComponent<RecordKeeper>().recording != null)
 		{
 			vcr.Play(recordKeeper.GetComponent<RecordKeeper>().recording, 0);
-			GameObject.Find ("Menu").SetActive(false);
-			Object.Destroy(recordKeeper);
+			if (GameObject.Find ("Menu") != null)
+				GameObject.Find ("Menu").SetActive(false);
 		}
 		else
 		{
@@ -97,6 +101,11 @@ public class PlayerControl : MonoBehaviour
 
 	}
 
+	public InputVCR getVcr()
+	{
+		return vcr;
+	}
+
 	void Update()
 	{
 		if (GameObject.FindWithTag("Kitten") == null && vcr.mode == InputVCRMode.Record)
@@ -104,7 +113,7 @@ public class PlayerControl : MonoBehaviour
 			// WIN!
 			GameObject recordKeeper = GameObject.Find ("RecordKeeper(Clone)");
 			recordKeeper.GetComponent<RecordKeeper>().recording = vcr.GetRecording();
-
+			recordKeeper.GetComponent<RecordKeeper>().wasLastRunSuccess = true;
 			Application.LoadLevel(Application.loadedLevel);
 			return;
 		}

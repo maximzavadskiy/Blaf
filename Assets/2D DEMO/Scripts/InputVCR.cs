@@ -191,10 +191,12 @@ public class InputVCR : MonoBehaviour
 	{			
 		Debug.Log("stopped");
 		GameObject recordKeeper = GameObject.Find ("RecordKeeper(Clone)");
-		Object.Destroy(recordKeeper);
-		Object.Destroy(this);
+		Destroy (recordKeeper);
+		if (recordKeeper.GetComponent<RecordKeeper>().wasLastRunSuccess)
+			Application.LoadLevel(GameObject.Find ("hero").GetComponent<NextLevel>().nextLevel);
+		else
+			Application.LoadLevel(0);
 
-		Application.LoadLevel(GameObject.Find ("hero").GetComponent<NextLevel>().nextLevel);
 	}
 	
 	/// <summary>

@@ -44,9 +44,18 @@ public class PlayerHealth : MonoBehaviour
 			// ... Trigger the 'Die' animation state
 			anim.SetTrigger("Die");
 
-			// Reload the game soon
-			StartCoroutine("ReloadGame");
+			GameObject recordKeeper = GameObject.Find ("RecordKeeper(Clone)");
+			//if (GetComponent<PlayerControl>().getVcr() != null)
+			//	recordKeeper.GetComponent<RecordKeeper>().recording = GetComponent<PlayerControl>().getVcr().GetRecording();
+			KillPlayer();
+		
 		}
+	}
+
+	public void KillPlayer()
+	{
+		// Reload the game soon
+		StartCoroutine("ReloadGame");
 	}
 	
 	
