@@ -17,7 +17,7 @@ public class WraithSpawnMovement : MonoBehaviour {
 		pos.y += Time.deltaTime * 2;
 		transform.position = pos;
 		transform.renderer.material.color = new Color (timeAlive * 0.5f, timeAlive * 0.5f, 1.0f, 1 - timeAlive * 0.5f);
-		transform.localScale = new Vector3 (timeAlive + 0.1f, timeAlive + 0.1f, timeAlive) * 0.12f;
+		transform.localScale = new Vector3 (timeAlive + 0.1f, timeAlive + 0.1f, timeAlive);
 
 		timeAlive += Time.deltaTime;
 		if (timeAlive > 2.0f)
