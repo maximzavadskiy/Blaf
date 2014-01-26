@@ -165,7 +165,7 @@ GameObject:
   - 131: {fileID: 997675155}
   - 114: {fileID: 997675154}
   m_Layer: 0
-  m_Name: introScreen
+  m_Name: outroScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,16 +179,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 997675153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae3c0151f61b56f4a9a5b8e17049a1dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 38d07609445a9164da1a03728f5ac295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToShowScreenInSeconds: 4
+  timeToShowScreenInSeconds: 2
   initialTimeout: 1.5
   slides:
-  - {fileID: 2800000, guid: a58a751692e069c4383ba093e144d252, type: 3}
-  - {fileID: 2800000, guid: a6496ec5915f4b54cb5be841e479f996, type: 3}
-  - {fileID: 2800000, guid: 0877de9c48d417b44bd19964587244e1, type: 3}
-  - {fileID: 2800000, guid: 929e5a4c5f7aa314599788e69a2faacf, type: 3}
+  - {fileID: 2800000, guid: 26de6841964c64544b1443f63487dc0b, type: 3}
   fadeTime: 0
   maxAlpha: .5
   minAlpha: 0
