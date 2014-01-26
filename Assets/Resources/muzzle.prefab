@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.1226215, y: 1.93791711, z: 0}
+  m_LocalPosition: {x: -16.9035511, y: 59.3261795, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -85,7 +85,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .529999971
+      scalar: .25999999
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -118,7 +118,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 17.3999996
+      scalar: 42.25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -133,7 +133,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .683908105
+          value: .51597631
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -229,13 +229,13 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minColor:
         serializedVersion: 2
-        rgba: 4279966659
+        rgba: 4282861383
       maxColor:
         serializedVersion: 2
-        rgba: 4281321940
+        rgba: 4290559164
       minMaxState: 2
     startSize:
-      scalar: .50999999
+      scalar: .379999995
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -308,7 +308,7 @@ ParticleSystem:
     enabled: 1
     type: 7
     radius: .189999998
-    angle: .689999998
+    angle: 10.3000002
     length: 5
     boxX: 1
     boxY: 1
@@ -352,7 +352,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 150
+    cnt0: 100
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -362,7 +362,7 @@ ParticleSystem:
     time3: 0
     m_BurstCount: 1
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       scalar: 2
       maxCurve:
@@ -437,10 +437,10 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4278219378
+          rgba: 4286479998
         key1:
           serializedVersion: 2
-          rgba: 1996489218
+          rgba: 4291414473
         key2:
           serializedVersion: 2
           rgba: 0
@@ -480,10 +480,10 @@ ParticleSystem:
       minGradient:
         key0:
           serializedVersion: 2
-          rgba: 4280486236
+          rgba: 4294375158
         key1:
           serializedVersion: 2
-          rgba: 65805
+          rgba: 4288453788
         key2:
           serializedVersion: 2
           rgba: 0
