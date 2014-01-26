@@ -60,7 +60,7 @@ public class Gun : MonoBehaviour
 	private void ShotGunShoot() {
 
 		int playerLayerMask = ~(1 << LayerMask.NameToLayer ("Player"));
-
+		Instantiate (deathParticlePrefab, transform.position, isShootingRight ? Quaternion.identity:Quaternion.Euler (0,0,180f));
 		ArrayList toKills = new ArrayList();
 
 		for (float angle = -shotAngle; angle <= shotAngle; angle += shotAngle/(linecastsAmount-1)) {

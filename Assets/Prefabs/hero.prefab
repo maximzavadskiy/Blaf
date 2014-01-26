@@ -145,7 +145,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .558085442, z: 0}
+  m_LocalPosition: {x: .959999979, y: .680000007, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 400020}
@@ -410,6 +410,7 @@ MonoBehaviour:
   shotReach: 7.5
   shotReloadTime: 1
   linecastsAmount: 10
+  deathParticlePrefab: {fileID: 100000, guid: ac1a942fc865e9643a7da066b8a2988e, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,6 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
+  controlsDisabled: 0
   jumpClips:
   - {fileID: 8300000, guid: 50a8d8a939a0f4e77a0dac6ecd2e582b, type: 3}
   taunts:
