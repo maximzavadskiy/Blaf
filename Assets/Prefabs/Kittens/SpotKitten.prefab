@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400008}
   m_Layer: 0
   m_Name: SpotKitten
   m_TagString: Kitten
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
+  deathParticlePrefab: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,7 +208,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac147650534d0a04981ce9f675044814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieSound: {fileID: 8300000, guid: 4825e9268b7c84159b1f2b9cb54850b1, type: 3}
+  dieSound: {fileID: 8300000, guid: d32d93282440f0a4cb7a57435d39577a, type: 3}
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b084913f6d3c64ab0440ac21d3219f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
+  deathParticlePrefab: {fileID: 100002, guid: 901ec2eb525c79c4cb3ea1ef59d777fb, type: 2}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

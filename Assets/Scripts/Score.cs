@@ -26,6 +26,6 @@ public class Score : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		guiText.text = "Kills: " + kills.ToString () + "\nKitten saved: " + kittenSaved + "/" + (totalKittens-kittenKilled);
+		guiText.text = "Kills: " + kills.ToString () + "\nKittens saved: " + kittenSaved + "/" + totalKittens;
 	}
 }
