@@ -987,7 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e137b3a0c336cc4e9fe80b737fefef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: 8300000, guid: 592ac02645987574ebf796461ca3ecc2, type: 3}
+  collectSound: {fileID: 8300000, guid: 0d21e26af684b5746bc9e6a6702f6cc4, type: 3}
 --- !u!61 &335656911
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1336,10 +1336,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 392275902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b1803e0fa577f45b452ea385bcc168, type: 3}
+  m_Script: {fileID: 11500000, guid: 76e8616b61206a54fb83d483cff29700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: level 3
+  deathParticlePrefab: {fileID: 100002, guid: 901ec2eb525c79c4cb3ea1ef59d777fb, type: 2}
 --- !u!114 &392275906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,6 +1495,57 @@ Transform:
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 1780763693}
+--- !u!1 &449691940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449691943}
+  - 114: {fileID: 449691942}
+  - 68: {fileID: 449691941}
+  m_Layer: 0
+  m_Name: BottomTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!68 &449691941
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449691940}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Points:
+  - {x: -.5, y: 0}
+  - {x: .5, y: 0}
+--- !u!114 &449691942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449691940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f871b9ba0446c4bb5f88ebc1e4cc10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &449691943
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449691940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.8689146, y: -4.2668457, z: 0}
+  m_LocalScale: {x: 153.597122, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &460996441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,6 +1889,7 @@ GameObject:
   - 114: {fileID: 602818416}
   - 114: {fileID: 602818415}
   - 114: {fileID: 602818414}
+  - 114: {fileID: 602818422}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -1871,6 +1923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &602818415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,6 +2062,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &602818422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1239242930}
+  m_GameObject: {fileID: 602818412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1001 &635433126
 Prefab:
   m_ObjectHideFlags: 0
@@ -2235,6 +2304,7 @@ GameObject:
   - 114: {fileID: 704910696}
   - 114: {fileID: 704910695}
   - 114: {fileID: 704910694}
+  - 114: {fileID: 704910703}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -2254,6 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &704910695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2406,6 +2477,22 @@ Transform:
   - {fileID: 2088087050}
   - {fileID: 131656811}
   m_Father: {fileID: 0}
+--- !u!114 &704910703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 970507932}
+  m_GameObject: {fileID: 704910693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1 &717956963
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,7 +2747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e137b3a0c336cc4e9fe80b737fefef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: 8300000, guid: 592ac02645987574ebf796461ca3ecc2, type: 3}
+  collectSound: {fileID: 8300000, guid: 0d21e26af684b5746bc9e6a6702f6cc4, type: 3}
 --- !u!61 &811694076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2846,7 +2933,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_SortingLayerID: 1535931219
-  m_Sprite: {fileID: 21300000, guid: d2bac61b6b89c8c49bc9c91dea24be2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cab97105599badc4aa1333512de27722, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &838122490
 GameObject:
@@ -3386,7 +3473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e137b3a0c336cc4e9fe80b737fefef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: 8300000, guid: 592ac02645987574ebf796461ca3ecc2, type: 3}
+  collectSound: {fileID: 8300000, guid: 0d21e26af684b5746bc9e6a6702f6cc4, type: 3}
 --- !u!61 &950760974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5114,7 +5201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e137b3a0c336cc4e9fe80b737fefef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: 8300000, guid: 592ac02645987574ebf796461ca3ecc2, type: 3}
+  collectSound: {fileID: 8300000, guid: 0d21e26af684b5746bc9e6a6702f6cc4, type: 3}
 --- !u!61 &1583424438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5278,6 +5365,7 @@ GameObject:
   - 114: {fileID: 1625657386}
   - 114: {fileID: 1625657385}
   - 114: {fileID: 1625657384}
+  - 114: {fileID: 1625657393}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -5297,6 +5385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &1625657385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5449,6 +5538,22 @@ Transform:
   - {fileID: 2074623919}
   - {fileID: 40847217}
   m_Father: {fileID: 0}
+--- !u!114 &1625657393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 529861139}
+  m_GameObject: {fileID: 1625657383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1 &1655500021
 GameObject:
   m_ObjectHideFlags: 0
@@ -5676,6 +5781,7 @@ GameObject:
   - 114: {fileID: 1692205404}
   - 114: {fileID: 1692205403}
   - 114: {fileID: 1692205402}
+  - 114: {fileID: 1692205410}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -5709,6 +5815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &1692205403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5847,6 +5954,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1692205410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 162077919}
+  m_GameObject: {fileID: 1692205400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1 &1715746321
 GameObject:
   m_ObjectHideFlags: 0
@@ -5953,6 +6076,7 @@ GameObject:
   - 114: {fileID: 1780763696}
   - 114: {fileID: 1780763695}
   - 114: {fileID: 1780763694}
+  - 114: {fileID: 1780763702}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -5986,6 +6110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &1780763695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6124,6 +6249,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1780763702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1952025148}
+  m_GameObject: {fileID: 1780763692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1001 &1822678540
 Prefab:
   m_ObjectHideFlags: 0
@@ -6180,6 +6321,7 @@ GameObject:
   - 114: {fileID: 1887973853}
   - 114: {fileID: 1887973852}
   - 114: {fileID: 1887973851}
+  - 114: {fileID: 1887973859}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -6213,6 +6355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &1887973852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6351,6 +6494,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1887973859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1985709028}
+  m_GameObject: {fileID: 1887973849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1 &1910436660
 GameObject:
   m_ObjectHideFlags: 0
@@ -6471,6 +6630,7 @@ GameObject:
   - 114: {fileID: 1942942478}
   - 114: {fileID: 1942942477}
   - 114: {fileID: 1942942476}
+  - 114: {fileID: 1942942484}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -6504,6 +6664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &1942942477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6642,6 +6803,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1942942484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 912188746}
+  m_GameObject: {fileID: 1942942474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1001 &1952025148
 Prefab:
   m_ObjectHideFlags: 0
@@ -6998,6 +7175,7 @@ GameObject:
   - 114: {fileID: 2120752059}
   - 114: {fileID: 2120752058}
   - 114: {fileID: 2120752057}
+  - 114: {fileID: 2120752066}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -7017,6 +7195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &2120752058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7169,6 +7348,22 @@ Transform:
   - {fileID: 1304794322}
   - {fileID: 476620423}
   m_Father: {fileID: 0}
+--- !u!114 &2120752066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1941684192}
+  m_GameObject: {fileID: 2120752056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1001 &2128139196
 Prefab:
   m_ObjectHideFlags: 0

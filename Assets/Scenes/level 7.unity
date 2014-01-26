@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e137b3a0c336cc4e9fe80b737fefef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: 8300000, guid: 592ac02645987574ebf796461ca3ecc2, type: 3}
+  collectSound: {fileID: 8300000, guid: 0d21e26af684b5746bc9e6a6702f6cc4, type: 3}
 --- !u!61 &48330386
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -697,7 +697,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 76b6c4295a3228648a610491e1b9448e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -40
+      value: -39.3035927
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 76b6c4295a3228648a610491e1b9448e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -928,6 +928,7 @@ GameObject:
   - 114: {fileID: 346957062}
   - 114: {fileID: 346957061}
   - 114: {fileID: 346957060}
+  - 114: {fileID: 346957068}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -961,6 +962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &346957061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,6 +1101,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &346957068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1713883357}
+  m_GameObject: {fileID: 346957058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1 &352285127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,10 +1287,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 392275902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b1803e0fa577f45b452ea385bcc168, type: 3}
+  m_Script: {fileID: 11500000, guid: 76e8616b61206a54fb83d483cff29700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: level 3
+  deathParticlePrefab: {fileID: 100002, guid: 901ec2eb525c79c4cb3ea1ef59d777fb, type: 2}
 --- !u!114 &392275906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,6 +1436,7 @@ GameObject:
   - 114: {fileID: 409762917}
   - 114: {fileID: 409762916}
   - 114: {fileID: 409762915}
+  - 114: {fileID: 409762923}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -1451,6 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &409762916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,6 +1609,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &409762923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 727912381}
+  m_GameObject: {fileID: 409762913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1 &515465694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1842,7 @@ Transform:
   m_PrefabInternal: {fileID: 223998213}
   m_GameObject: {fileID: 582928521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40, y: -4, z: 0}
+  m_LocalPosition: {x: -39.3035927, y: -4, z: 0}
   m_LocalScale: {x: 1.15409088, y: 1.15409064, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1893,6 +1929,7 @@ GameObject:
   - 114: {fileID: 651623238}
   - 114: {fileID: 651623237}
   - 114: {fileID: 651623236}
+  - 114: {fileID: 651623245}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -1912,6 +1949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &651623237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2064,6 +2102,22 @@ Transform:
   - {fileID: 799425550}
   - {fileID: 165419711}
   m_Father: {fileID: 0}
+--- !u!114 &651623245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1541205139}
+  m_GameObject: {fileID: 651623235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1 &662687358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,8 +2312,59 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_SortingLayerID: 1535931219
-  m_Sprite: {fileID: 21300000, guid: d2bac61b6b89c8c49bc9c91dea24be2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cab97105599badc4aa1333512de27722, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &837163609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 837163612}
+  - 114: {fileID: 837163611}
+  - 68: {fileID: 837163610}
+  m_Layer: 0
+  m_Name: BottomTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!68 &837163610
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 837163609}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Points:
+  - {x: -.5, y: 0}
+  - {x: .5, y: 0}
+--- !u!114 &837163611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 837163609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f871b9ba0446c4bb5f88ebc1e4cc10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &837163612
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 837163609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.8689146, y: -16.3023529, z: 0}
+  m_LocalScale: {x: 153.597122, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &838122490
 GameObject:
   m_ObjectHideFlags: 0
@@ -3043,7 +3148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e137b3a0c336cc4e9fe80b737fefef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectSound: {fileID: 8300000, guid: 592ac02645987574ebf796461ca3ecc2, type: 3}
+  collectSound: {fileID: 8300000, guid: 0d21e26af684b5746bc9e6a6702f6cc4, type: 3}
 --- !u!61 &1134371274
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4359,6 +4464,7 @@ GameObject:
   - 114: {fileID: 1894487662}
   - 114: {fileID: 1894487661}
   - 114: {fileID: 1894487660}
+  - 114: {fileID: 1894487668}
   m_Layer: 10
   m_Name: InvisibleEnemy
   m_TagString: Enemy
@@ -4392,6 +4498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a010ac1d4d3ae46baa10b6080802ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnemy: 0
 --- !u!114 &1894487661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4530,6 +4637,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1894487668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 99c5c7777f17b0e43954fc55de6a8fef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1679580900}
+  m_GameObject: {fileID: 1894487658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dadeb9fa8cbfa648b9cf42a66df74ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farSound: {fileID: 8300000, guid: b93a91803fa917d4886302607f63b98d, type: 3}
+  closeSound: {fileID: 8300000, guid: 9b98155614fe58a42bd895063c143777, type: 3}
+  closeDistance: 6
+  maxYDiffForCloseSound: 3
 --- !u!1 &1931889469
 GameObject:
   m_ObjectHideFlags: 0
