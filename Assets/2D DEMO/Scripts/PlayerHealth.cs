@@ -49,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
 			KillPlayer();
 			col.gameObject.GetComponent<EnemyReplayVisibility>().showEnemy = true;
 			collider2D.enabled = false;
+			GetComponent<HeroDeath>().showParticleEffect();
 		}
 	}
 
