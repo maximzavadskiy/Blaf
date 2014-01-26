@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
 
 	public int linecastsAmount = 10;
 
+	public GameObject deathParticlePrefab;
 
 	bool isShootingRight = true;
 	private Animator anim;					// Reference to the Animator component.
@@ -59,7 +60,7 @@ public class Gun : MonoBehaviour
 	private void ShotGunShoot() {
 
 		int playerLayerMask = ~(1 << LayerMask.NameToLayer ("Player"));
-		
+
 		ArrayList toKills = new ArrayList();
 
 		for (float angle = -shotAngle; angle <= shotAngle; angle += shotAngle/(linecastsAmount-1)) {
@@ -87,6 +88,7 @@ public class Gun : MonoBehaviour
 			//print (toKill.)
 			//RaycastHit2D toKill = (RaycastHit2D )obj;
 			if(toKill.collider != null) {
+
 				//print (Vector2.Angle(isShootingRight ? Vector2.right : - Vector2.right, toKill.collider.transform.position - transform.position) );
 				toKill.collider.SendMessage("Die", SendMessageOptions.DontRequireReceiver);
 			}

@@ -1762,7 +1762,7 @@ GameObject:
   - 4: {fileID: 2042527436}
   - 132: {fileID: 2042527435}
   m_Layer: 0
-  m_Name: GUI Text
+  m_Name: InstantReplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1777,14 +1777,14 @@ GUIText:
   m_Enabled: 1
   serializedVersion: 3
   m_Text: Instant Replay..
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 4
+  m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Material: {fileID: 0}
-  m_FontSize: 0
+  m_FontSize: 45
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
