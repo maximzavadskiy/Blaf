@@ -17,6 +17,10 @@ public class PlayerHealth : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
+		// Invulnerable while on playback
+		if (GetComponent<InputVCR> ().mode == InputVCRMode.Playback)
+			return;
+
 		// If the colliding gameobject is an Enemy...
 		if(col.gameObject.tag == "Enemy")
 		{
