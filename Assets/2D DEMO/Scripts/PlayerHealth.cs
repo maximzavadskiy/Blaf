@@ -5,8 +5,6 @@ public class PlayerHealth : MonoBehaviour
 {	
 	private PlayerControl playerControl;		// Reference to the PlayerControl script.
 	private Animator anim;						// Reference to the Animator on the player
-	private bool alive = true;
-
 
 	void Awake ()
 	{
@@ -49,7 +47,8 @@ public class PlayerHealth : MonoBehaviour
 			//if (GetComponent<PlayerControl>().getVcr() != null)
 			//	recordKeeper.GetComponent<RecordKeeper>().recording = GetComponent<PlayerControl>().getVcr().GetRecording();
 			KillPlayer();
-			alive = false;
+			col.gameObject.GetComponent<EnemyReplayVisibility>().showEnemy = true;
+			collider2D.enabled = false;
 		}
 	}
 
@@ -59,12 +58,6 @@ public class PlayerHealth : MonoBehaviour
 		StartCoroutine("ReloadGame");
 	}
 
-	public bool isAlive()
-	{
-		return alive;
-	}
-
-	
 	IEnumerator ReloadGame()
 	{			
 		// ... pause briefly
