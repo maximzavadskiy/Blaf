@@ -12,7 +12,7 @@ public class FollowHero : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 newPos = hero.transform.position;
-		newPos.y += 5;
+		newPos.y += 2;
 		newPos.z = transform.position.z;
 		transform.position = newPos;
 	}

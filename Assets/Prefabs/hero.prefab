@@ -460,10 +460,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b1803e0fa577f45b452ea385bcc168, type: 3}
+  m_Script: {fileID: 11500000, guid: 76e8616b61206a54fb83d483cff29700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: level 3
+  deathParticlePrefab: {fileID: 100002, guid: 901ec2eb525c79c4cb3ea1ef59d777fb, type: 2}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

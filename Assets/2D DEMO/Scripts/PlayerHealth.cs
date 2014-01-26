@@ -6,7 +6,6 @@ public class PlayerHealth : MonoBehaviour
 	private PlayerControl playerControl;		// Reference to the PlayerControl script.
 	private Animator anim;						// Reference to the Animator on the player
 
-
 	void Awake ()
 	{
 		// Setting up references.
@@ -48,7 +47,9 @@ public class PlayerHealth : MonoBehaviour
 			//if (GetComponent<PlayerControl>().getVcr() != null)
 			//	recordKeeper.GetComponent<RecordKeeper>().recording = GetComponent<PlayerControl>().getVcr().GetRecording();
 			KillPlayer();
-		
+			col.gameObject.GetComponent<EnemyReplayVisibility>().showEnemy = true;
+			collider2D.enabled = false;
+			GetComponent<HeroDeath>().showParticleEffect();
 		}
 	}
 
@@ -57,8 +58,7 @@ public class PlayerHealth : MonoBehaviour
 		// Reload the game soon
 		StartCoroutine("ReloadGame");
 	}
-	
-	
+
 	IEnumerator ReloadGame()
 	{			
 		// ... pause briefly
