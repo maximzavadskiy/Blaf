@@ -8,7 +8,8 @@ public class PlayerToCatDistance : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		anim = GetComponent<Animator>();
+		anim = transform.FindChild ("body").GetComponent<Animator>();
+		audio.volume = 0.5f;
 	}
 	
 	// Update is called once per frame
@@ -16,5 +17,7 @@ public class PlayerToCatDistance : MonoBehaviour {
 	{
 		Vector2 toPlayer = transform.position - GameObject.Find ("hero").transform.position;
 		anim.SetFloat("distance", toPlayer.sqrMagnitude);
+		audio.mute = toPlayer.sqrMagnitude > 100;
+		audio.volume = (1 - (toPlayer.sqrMagnitude/100))*0.2f;
 	}
 }

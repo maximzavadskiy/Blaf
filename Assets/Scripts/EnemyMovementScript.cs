@@ -5,11 +5,10 @@ public class EnemyMovementScript : MonoBehaviour
 {
 	private bool facingRight = false;
 
-
-	private Transform edgeRight = null;
 	private Transform edgeLeft = null;
 
-	private Transform wallCheckRight = null;
+	private bool controlsDisabled = false;
+
 	private Transform wallCheckLeft = null;
 	//private Animator anim = null;
 
@@ -17,17 +16,23 @@ public class EnemyMovementScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		edgeRight = transform.FindChild("PlatformEdgeCheckerRight");
 		edgeLeft = transform.FindChild("PlatformEdgeCheckerLeft");
 
-		wallCheckRight = transform.FindChild("WallCheckerRight");
 		wallCheckLeft = transform.FindChild("WallCheckerLeft");
-		//anim = transform.FindChild("body").GetComponent<Animator>();
+		GameObject menu = GameObject.Find("menuDimmer");
+		controlsDisabled = menu != null && menu.activeInHierarchy;
 	}
-	
+
+	public void enableControls()
+	{
+		controlsDisabled = false;
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
+		if (controlsDisabled) return;
+
 		bool hasGroundInFront = Physics2D.Linecast (transform.position, edgeLeft.position, 1 << LayerMask.NameToLayer ("Ground"));
 		                                               //facingRight ? edgeRight.position : edgeLeft.position,
 		                                               //1 << LayerMask.NameToLayer ("Ground"));
@@ -62,6 +67,7 @@ public class EnemyMovementScript : MonoBehaviour
 		//force *= speed;
 		//if (rigidbody2D.velocity.x* < maxSpeed)
 		//	rigidbody2D.AddForce(force);
+
 		Vector2 vel = rigidbody2D.velocity;
 		vel.x = facingRight ? speed : -speed;
 		rigidbody2D.velocity = vel;

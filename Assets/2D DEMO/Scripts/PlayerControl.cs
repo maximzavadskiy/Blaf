@@ -16,6 +16,7 @@ public class PlayerControl : MonoBehaviour
 
 	public GameObject recordKeeperPrefab;
 
+	public AudioClip gameSound;
 
 	private float jumpForce = 850f;			// Amount of force added when the player jumps.
 	private float maxSpeed = 7.5f;				// The fastest the player can travel in the x axis.
@@ -74,12 +75,26 @@ public class PlayerControl : MonoBehaviour
 	{
 		GameObject menu = GameObject.Find("menuDimmer");
 		controlsDisabled = menu != null && menu.activeInHierarchy;
+		//means that we're in the menu
+		if (controlsDisabled)
+		{
+			audio.volume = 1f;
+		}
 	}
 
 	public void enableControls()
 	{
 		controlsDisabled = false;
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		foreach (GameObject enemy in enemies) 
+		{
+			enemy.GetComponent<EnemyMovementScript>().enableControls();
+		}
 		vcr.NewRecording();
+		audio.clip = gameSound;
+		audio.volume = 0.18f;
+		audio.Play ();
+
 	}
 
 	void Update()
