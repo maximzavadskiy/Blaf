@@ -49,8 +49,10 @@ public class Gun : MonoBehaviour
 		if (Time.time > lastShotTime + shotReloadTime && (vcr.GetKey ("a") || vcr.GetKey ("d")))
 		{
 			lastShotTime = Time.time;
-			// ... set the animator Shoot trigger parameter and play the audioclip.
-		//	anim.SetTrigger("Shoot");
+
+			// the animator Shoot trigger parameter and play the audioclip.
+			if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().facingRight != isShootingRight) anim.SetTrigger("ShootBack");
+
 			audio.Play();
 
 			ShotGunShoot();
