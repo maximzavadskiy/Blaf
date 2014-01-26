@@ -796,7 +796,7 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 0}
   m_Material: {fileID: 0}
-  m_FontSize: 40
+  m_FontSize: 15
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
@@ -1906,8 +1906,7 @@ MonoBehaviour:
   facingRight: 1
   jump: 0
   controlsDisabled: 0
-  jumpClips:
-  - {fileID: 8300000, guid: 50a8d8a939a0f4e77a0dac6ecd2e582b, type: 3}
+  jumpClips: []
   taunts:
   - {fileID: 8300000, guid: 27cbebf9d650249e5b032494eae5322c, type: 3}
   - {fileID: 8300000, guid: 986fa1b8984964da79d1be0597332fb2, type: 3}
@@ -2330,7 +2329,7 @@ Transform:
   m_GameObject: {fileID: 490769832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .159999996, y: .159999996, z: .200000003}
+  m_LocalScale: {x: .5, y: .5, z: .200000003}
   m_Children: []
   m_Father: {fileID: 758478071}
 --- !u!1 &494000671
@@ -2393,7 +2392,7 @@ Transform:
   m_PrefabInternal: {fileID: 1370648722}
   m_GameObject: {fileID: 494000671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.57147694, y: 0, z: 0}
+  m_LocalPosition: {x: 6.82619858, y: 0, z: 0}
   m_LocalScale: {x: 1.15409088, y: 1.15409064, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2808,6 +2807,7 @@ GameObject:
   - 114: {fileID: 646334511}
   - 114: {fileID: 646334510}
   - 114: {fileID: 646334509}
+  - 114: {fileID: 646334518}
   m_Layer: 0
   m_Name: LightKitten
   m_TagString: Kitten
@@ -2851,7 +2851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac147650534d0a04981ce9f675044814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieSound: {fileID: 8300000, guid: 4825e9268b7c84159b1f2b9cb54850b1, type: 3}
+  dieSound: {fileID: 8300000, guid: d32d93282440f0a4cb7a57435d39577a, type: 3}
 --- !u!114 &646334512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2865,6 +2865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
+  deathParticlePrefab: {fileID: 100002, guid: 901ec2eb525c79c4cb3ea1ef59d777fb, type: 2}
 --- !u!114 &646334513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2973,6 +2974,20 @@ Transform:
   m_Children:
   - {fileID: 1826104174}
   m_Father: {fileID: 0}
+--- !u!114 &646334518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: 030d0857157f5c443aaa62e02d03534d,
+    type: 2}
+  m_PrefabInternal: {fileID: 96141333}
+  m_GameObject: {fileID: 646334508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b084913f6d3c64ab0440ac21d3219f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
+  deathParticlePrefab: {fileID: 100002, guid: 901ec2eb525c79c4cb3ea1ef59d777fb, type: 2}
 --- !u!1 &664138227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,10 +3440,10 @@ GameObject:
   - 114: {fileID: 758478078}
   - 61: {fileID: 758478077}
   - 114: {fileID: 758478076}
-  - 114: {fileID: 758478075}
   - 114: {fileID: 758478074}
   - 114: {fileID: 758478073}
   - 114: {fileID: 758478072}
+  - 114: {fileID: 758478075}
   m_Layer: 0
   m_Name: WhiteKitten
   m_TagString: Kitten
@@ -3484,11 +3499,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac147650534d0a04981ce9f675044814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieSound: {fileID: 8300000, guid: 4825e9268b7c84159b1f2b9cb54850b1, type: 3}
+  dieSound: {fileID: 8300000, guid: d32d93282440f0a4cb7a57435d39577a, type: 3}
 --- !u!114 &758478075
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: ac963987dc7574b4bbc0d5ce2f301f5f,
+  m_PrefabParentObject: {fileID: 11400008, guid: ac963987dc7574b4bbc0d5ce2f301f5f,
     type: 2}
   m_PrefabInternal: {fileID: 1592692749}
   m_GameObject: {fileID: 758478070}
@@ -3498,6 +3513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
+  deathParticlePrefab: {fileID: 100002, guid: 901ec2eb525c79c4cb3ea1ef59d777fb, type: 2}
 --- !u!114 &758478076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3805,7 +3821,7 @@ Transform:
   m_GameObject: {fileID: 808891018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .159999996, y: .159999996, z: .200000003}
+  m_LocalScale: {x: .5, y: .5, z: .200000003}
   m_Children: []
   m_Father: {fileID: 950760977}
 --- !u!95 &808891021
@@ -4017,7 +4033,7 @@ Transform:
   m_GameObject: {fileID: 838122490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .14957428, y: .341982573, z: 0}
-  m_LocalScale: {x: .243841901, y: .243841648, z: .400000006}
+  m_LocalScale: {x: 1, y: 1, z: .400000006}
   m_Children: []
   m_Father: {fileID: 392275903}
 --- !u!82 &838122492
@@ -4029,7 +4045,7 @@ AudioSource:
   m_GameObject: {fileID: 838122490}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: f7f44450152044d2b9fce9c34b2a54a6, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4635,10 +4651,10 @@ GameObject:
   - 114: {fileID: 950760975}
   - 61: {fileID: 950760974}
   - 114: {fileID: 950760973}
-  - 114: {fileID: 950760972}
   - 114: {fileID: 950760971}
   - 114: {fileID: 950760979}
   - 114: {fileID: 950760978}
+  - 114: {fileID: 950760972}
   m_Layer: 0
   m_Name: BrownKitten
   m_TagString: Kitten
@@ -4658,11 +4674,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac147650534d0a04981ce9f675044814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieSound: {fileID: 8300000, guid: 4825e9268b7c84159b1f2b9cb54850b1, type: 3}
+  dieSound: {fileID: 8300000, guid: d32d93282440f0a4cb7a57435d39577a, type: 3}
 --- !u!114 &950760972
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: b905645b1f8c4f547862953c61a5fa00,
+  m_PrefabParentObject: {fileID: 11400008, guid: b905645b1f8c4f547862953c61a5fa00,
     type: 2}
   m_PrefabInternal: {fileID: 197431407}
   m_GameObject: {fileID: 950760970}
@@ -4672,6 +4688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
+  deathParticlePrefab: {fileID: 100002, guid: 901ec2eb525c79c4cb3ea1ef59d777fb, type: 2}
 --- !u!114 &950760973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5827,7 +5844,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 1b2e4531e8462864a9922dd473189a38, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.57147694
+      value: 6.82619858
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b2e4531e8462864a9922dd473189a38, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6635,7 +6652,7 @@ Transform:
   m_GameObject: {fileID: 1644575388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .159999996, y: .159999996, z: .200000003}
+  m_LocalScale: {x: .5, y: .5, z: .200000003}
   m_Children: []
   m_Father: {fileID: 1879572340}
 --- !u!95 &1644575390
@@ -6714,7 +6731,7 @@ AudioSource:
   m_GameObject: {fileID: 1657424659}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 71c2c0e8ae6c44d459723bef91c9bbbf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0421c3682e534564980dcd89396a75e2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1.10000002
@@ -6778,7 +6795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotAngle: 15
   shotReach: 7.5
-  shotReloadTime: 1
+  shotReloadTime: .899999976
   linecastsAmount: 10
   deathParticlePrefab: {fileID: 100000, guid: ac1a942fc865e9643a7da066b8a2988e, type: 2}
 --- !u!1001 &1670208741
@@ -7118,7 +7135,7 @@ Transform:
   m_GameObject: {fileID: 1826104173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .159999996, y: .159999996, z: .200000003}
+  m_LocalScale: {x: .5, y: .5, z: .200000003}
   m_Children: []
   m_Father: {fileID: 646334517}
 --- !u!95 &1826104175
@@ -7280,6 +7297,7 @@ GameObject:
   - 114: {fileID: 1879572334}
   - 114: {fileID: 1879572333}
   - 114: {fileID: 1879572332}
+  - 114: {fileID: 1879572341}
   m_Layer: 0
   m_Name: SpotKitten
   m_TagString: Kitten
@@ -7323,7 +7341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac147650534d0a04981ce9f675044814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieSound: {fileID: 8300000, guid: 4825e9268b7c84159b1f2b9cb54850b1, type: 3}
+  dieSound: {fileID: 8300000, guid: d32d93282440f0a4cb7a57435d39577a, type: 3}
 --- !u!114 &1879572335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7337,6 +7355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
+  deathParticlePrefab: {fileID: 0}
 --- !u!114 &1879572336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7445,6 +7464,20 @@ Transform:
   m_Children:
   - {fileID: 1644575389}
   m_Father: {fileID: 0}
+--- !u!114 &1879572341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: 9687249e0987ef0449a65cf32ae1de36,
+    type: 2}
+  m_PrefabInternal: {fileID: 1743873049}
+  m_GameObject: {fileID: 1879572331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b084913f6d3c64ab0440ac21d3219f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyToSpawn: {fileID: 100000, guid: 02882dbca25400c4da82ae02f73e90c6, type: 2}
+  deathParticlePrefab: {fileID: 100002, guid: 901ec2eb525c79c4cb3ea1ef59d777fb, type: 2}
 --- !u!1001 &1880841740
 Prefab:
   m_ObjectHideFlags: 0
