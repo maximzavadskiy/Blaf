@@ -8,7 +8,7 @@ public class FollowHero : MonoBehaviour {
 	void Start () {
 		hero = GameObject.Find ("hero");
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		Vector3 newPos = hero.transform.position;

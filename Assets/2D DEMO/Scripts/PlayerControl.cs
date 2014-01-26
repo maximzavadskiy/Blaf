@@ -8,7 +8,7 @@ public class PlayerControl : MonoBehaviour
 	[HideInInspector]
 	public bool jump = false;				// Condition for whether the player should jump.
 
-
+	public bool controlsDisabled = false;
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
 	public AudioClip[] taunts;				// Array of clips for when the player taunts.
 	public float tauntProbability = 50f;	// Chance of a taunt happening.
@@ -60,6 +60,8 @@ public class PlayerControl : MonoBehaviour
 		if (recordKeeper.GetComponent<RecordKeeper>().recording != null)
 		{
 			vcr.Play(recordKeeper.GetComponent<RecordKeeper>().recording, 0);
+			GameObject.Find ("Menu").SetActive(false);
+			Object.Destroy(recordKeeper);
 		}
 		else
 		{
@@ -68,10 +70,21 @@ public class PlayerControl : MonoBehaviour
 		}
 	}
 
+	void Start()
+	{
+		GameObject menu = GameObject.Find("menuDimmer");
+		controlsDisabled = menu != null && menu.activeInHierarchy;
+	}
+
+	public void enableControls()
+	{
+		controlsDisabled = false;
+		vcr.NewRecording();
+	}
 
 	void Update()
 	{
-		if (GameObject.FindWithTag("Kitten") == null)
+		if (GameObject.FindWithTag("Kitten") == null && vcr.mode == InputVCRMode.Record)
 		{
 			// WIN!
 			GameObject recordKeeper = GameObject.Find ("RecordKeeper(Clone)");
@@ -117,8 +130,11 @@ public class PlayerControl : MonoBehaviour
 		else stuckOnUprightWall = false;
 	}
 
+
+
 	void FixedUpdate ()
 	{
+		if (controlsDisabled) return;
 		// Cache the horizontal input.
 		float h = 0.0f;
 		

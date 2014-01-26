@@ -84,7 +84,10 @@ public class InputVCR : MonoBehaviour
 	
 	float nextPosSyncTime = -1f;
 	float realRecordingTime;
-	
+
+	float GuitimeStamp = 0;
+	bool Guishow = false;
+
 	Recording currentRecording;		// the recording currently in the VCR. Copy or ToString() this to save.
 	public float currentTime{
 		get {
@@ -186,9 +189,12 @@ public class InputVCR : MonoBehaviour
 	/// </summary>
 	public void Stop()
 	{			
-		_mode = InputVCRMode.Passthru;
-		currentFrame = 0;
-		playbackTime = 0;
+		Debug.Log("stopped");
+		GameObject recordKeeper = GameObject.Find ("RecordKeeper(Clone)");
+		Object.Destroy(recordKeeper);
+		Object.Destroy(this);
+
+		Application.LoadLevel(GameObject.Find ("hero").GetComponent<NextLevel>().nextLevel);
 	}
 	
 	/// <summary>
@@ -247,7 +253,7 @@ public class InputVCR : MonoBehaviour
 			int lastFrame = currentFrame;
 			currentFrame = currentRecording.GetClosestFrame ( playbackTime );
 			
-			if ( currentFrame > currentRecording.totalFrames )
+			if ( currentFrame >= currentRecording.totalFrames )
 			{
 				// end of recording
 				if ( finishedPlayback != null )
@@ -498,7 +504,28 @@ public class InputVCR : MonoBehaviour
 			return Input.mousePosition;
 		}
 	}
-	
+
+	void OnGUI()
+	{
+		GameObject ir = GameObject.Find ("InstantReplay");
+
+		if (ir != null)
+		{
+			if(mode == InputVCRMode.Playback)
+			{
+				ir.guiText.color = new Color(1f, 1f, 1f, Guishow ? 1f : 0);
+				if (Time.realtimeSinceStartup - GuitimeStamp > 0.4f || GuitimeStamp == 0)
+				{
+					GuitimeStamp = Time.realtimeSinceStartup;
+					Guishow = !Guishow;
+				}
+			}
+			else 
+				ir.guiText.color = new Color(1f, 1f, 1f, 0f);
+
+		}
+	}
+
 	public string GetProperty( string propertyName )
 	{
 		return currentRecording.GetProperty ( currentFrame, propertyName );
@@ -526,5 +553,6 @@ public enum InputVCRMode
 	Passthru,	// normal input
 	Record,
 	Playback,
-	Pause
+	Pause,
+	Stopped
 }

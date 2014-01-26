@@ -35,6 +35,7 @@ public class Gun : MonoBehaviour
 
 	void Update ()
 	{
+		if (transform.root.GetComponent<PlayerControl>().controlsDisabled) return;
 		if (vcr.GetKey ("a"))
 			isShootingRight = false;
 
@@ -48,7 +49,7 @@ public class Gun : MonoBehaviour
 		{
 			lastShotTime = Time.time;
 			// ... set the animator Shoot trigger parameter and play the audioclip.
-			anim.SetTrigger("Shoot");
+		//	anim.SetTrigger("Shoot");
 			audio.Play();
 
 			ShotGunShoot();
