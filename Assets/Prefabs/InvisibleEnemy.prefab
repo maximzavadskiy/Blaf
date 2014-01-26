@@ -25,7 +25,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  - 95: {fileID: 9500000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
@@ -89,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.55834985, y: 14.0067272, z: 0}
+  m_LocalPosition: {x: -13.3711662, y: 13.8782635, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 400000}
@@ -202,20 +201,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!95 &9500000
-Animator:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2e2858a2181ae42d99d0cd87dbea80b6, type: 2}
-  m_CullingMode: 1
-  m_ApplyRootMotion: 0
-  m_AnimatePhysics: 1
-  m_HasTransformHierarchy: 1
 --- !u!95 &9500002
 Animator:
   serializedVersion: 2

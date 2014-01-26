@@ -128,7 +128,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 4c49d861096f6354582d036e13c12cd2, type: 2}
+  - {fileID: 7400000, guid: a7c82e02bb51d7f43b3a88cc3f3ffc47, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: -168, y: -120, z: 0}
   m_IKOnFeet: 0
@@ -143,9 +143,24 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: d45b875b7377175469b42559150f3420, type: 2}
+  - {fileID: 7400000, guid: 2bb4f43a79f7beb498cc6a38888d868e, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 156, y: -180, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110265938
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: HeroWalk 0
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 2bb4f43a79f7beb498cc6a38888d868e, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 255, y: -157, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -173,7 +188,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 93cd3cd512d796146ba3f394475c04ff, type: 2}
+  - {fileID: 7400000, guid: 0ac1f2892ccba4b4894b8bcdbf1911e4, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 204, y: -72, z: 0}
   m_IKOnFeet: 0
@@ -195,10 +210,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110295330}
-      second:
-      - {fileID: 110195735}
-    data:
       first: {fileID: 0}
       second:
       - {fileID: 110199934}
@@ -210,6 +221,10 @@ StateMachine:
       first: {fileID: 110259883}
       second:
       - {fileID: 110180958}
+    data:
+      first: {fileID: 110295330}
+      second:
+      - {fileID: 110195735}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
