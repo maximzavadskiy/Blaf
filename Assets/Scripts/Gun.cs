@@ -27,7 +27,7 @@ public class Gun : MonoBehaviour
 			root = root.parent;
 		vcr = root.GetComponent<InputVCR>();
 		
-		anim = transform.root.gameObject.GetComponent<Animator>();
+		anim = transform.root.transform.FindChild ("body").GetComponent<Animator>();
 
 		lastShotTime = -shotReloadTime;
 	}

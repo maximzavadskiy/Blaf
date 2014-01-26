@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
 	{
 		// Setting up references.
 		playerControl = GetComponent<PlayerControl>();
-		anim = GetComponent<Animator>();
+		anim = transform.FindChild("body").GetComponent<Animator>();
 
 	}
 
